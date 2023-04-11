@@ -3,6 +3,7 @@ import css from './app.module.css';
 import Section from './Section/Section';
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 import Statistics from './Statistics/Statistics';
+import Notification from './Notification/Notification';
 
 export const App = () => {
   const [good, setPositive] = useState(0);
@@ -38,13 +39,17 @@ export const App = () => {
         <FeedbackOptions onLeaveFeedback={onLeaveFeedback} />
       </Section>
       <Section title="Statistics">
-        <Statistics
-          good={good}
-          bad={bad}
-          neutral={neutral}
-          total={total}
-          positivePercentage={countPositiveFeedbackPercentage()}
-        ></Statistics>
+        {total === 0 ? (
+          <Notification message="There is no feedback :(" />
+        ) : (
+          <Statistics
+            good={good}
+            bad={bad}
+            neutral={neutral}
+            total={total}
+            positivePercentage={countPositiveFeedbackPercentage()}
+          />
+        )}
       </Section>
     </div>
   );
