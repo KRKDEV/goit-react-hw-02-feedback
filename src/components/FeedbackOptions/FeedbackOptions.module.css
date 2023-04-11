@@ -1,0 +1,17 @@
+.feedback {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.feedback__btn {
+  background-color: rgb(5, 130, 248);
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  outline: none;
+}
